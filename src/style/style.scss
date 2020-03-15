@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css?family=Oxanium&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oxanium", Arial, Helvetica, sans-serif;
+
+  background-image: linear-gradient(
+    0.3turn,
+    rgb(211, 147, 190),
+    rgb(16, 27, 88)
+  );
+}
+
+.main {
+  min-height: 100vh;
+  width: 80%;
+  margin: 70px auto;
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+}
+
+.infoArea {
+  box-shadow: 4px 6px 10px 0px rgb(28, 3, 56);
+  padding: 10px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  background-image: -webkit-linear-gradient(
+    0.3turn,
+    rgb(80, 7, 58),
+    rgb(4, 3, 61)
+  );
+  &__balance {
+    margin-top: 15px;
+    font-size: 4em;
+    color: rgb(229, 216, 231);
+  }
+  @media (max-width: 900px) {
+  }
+}
+.container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
+}
+
+.expenses,
+.income {
+  background-color: rgb(248, 233, 250);
+  box-shadow: 10px 12px 15px 0px rgb(38, 4, 61);
+  text-align: center;
+  margin: 0 10px;
+  min-width: 320px;
+  height: fit-content;
+  @media (max-width: 900px) {
+    width: 80%;
+    max-width: 500px;
+
+    margin: 40px;
+  }
+  &__container {
+    .simplebar-track.simplebar-vertical {
+      width: 12px;
+      opacity: 0.5;
+    }
+
+    .list-element {
+      padding: 5px;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 80px;
+      text-transform: capitalize;
+      &__date {
+        flex-basis: 60%;
+        display: flex;
+        font-size: 0.9em;
+        flex-grow: 1;
+        opacity: 0.7;
+      }
+      &__bin {
+        color: rgb(92, 85, 92);
+        margin: 0 5px;
+        font-size: 1.4em;
+        &:hover {
+          transition: 0.3s;
+          color: rgb(0, 0, 0);
+          cursor: pointer;
+        }
+      }
+      &__title {
+        display: flex;
+        margin: 0 10px;
+        flex-basis: 60%;
+        font-size: 1.6em;
+        font-weight: bold;
+        opacity: 0.8;
+        align-items: flex-end;
+      }
+      &__value {
+        display: flex;
+        justify-content: flex-end;
+        margin: 0 10px;
+        flex-grow: 1;
+        font-size: 1.2em;
+        opacity: 0.9;
+        align-items: flex-end;
+      }
+      &:nth-child(odd) {
+        background-color: rgba(65, 4, 80, 0.123);
+      }
+    }
+  }
+
+  &__number,
+  &__textfield {
+    width: 60%;
+
+    //remove arrows from number inputs
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
+  }
+  &__styledHeader {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 3.2em;
+    background: -webkit-linear-gradient(
+      0.3turn,
+      rgb(126, 17, 108),
+      rgb(0, 0, 0)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  &__summedValue {
+    font-size: 1.2em;
+    margin-top: 10px;
+    opacity: 0.8;
+  }
+}
+
+.button {
+  border-radius: 0;
+  font-size: 1em;
+  margin: 20px auto;
+  padding: 5px 40px;
+  letter-spacing: 0.4em;
+  background-image: -webkit-linear-gradient(
+    0.3turn,
+    rgb(80, 7, 58),
+    rgb(4, 3, 61)
+  );
+}
+
+.c {
+  position: absolute;
+  max-width: 25px;
+  max-height: 25px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  // will-change: transform, opacity;
+  color: white;
+  font-size: 1.2em;
+  &:hover {
+    color: rgb(255, 255, 163);
+    font-size: 1.4em;
+    transition: 0.2s;
+  }
+  @media (max-width: 900px) {
+    right: 80px;
+    top: 10px;
+    font-size: 2.6em;
+    &:hover {
+      color: rgb(255, 255, 163);
+      font-size: 2.6em;
+      transition: 0.2s;
+    }
+  }
+}
