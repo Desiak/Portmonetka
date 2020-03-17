@@ -50,13 +50,12 @@ class App extends React.Component {
   };
 
   handleIncomeButtonClick = e => {
-    if (this.state.incomeName.length < 3) {
+    if (this.state.incomeName.length < 3 || this.state.incomeName.length > 21) {
       this.setState({
         errorIT: true
       });
       this.resetErrors();
-    }
-    if (this.state.valueInc <= 1) {
+    } else if (this.state.valueInc <= 1) {
       this.setState({
         errorIV: true
       });
@@ -90,13 +89,15 @@ class App extends React.Component {
     }, 2000);
   };
   handleExpensesButtonClick = () => {
-    if (this.state.expenseName.length < 3) {
+    if (
+      this.state.expenseName.length < 3 ||
+      this.state.expenseName.length > 21
+    ) {
       this.setState({
         errorET: true
       });
       this.resetErrors();
-    }
-    if (this.state.valueExp < 1) {
+    } else if (this.state.valueExp < 1) {
       this.setState({
         errorEV: true
       });
