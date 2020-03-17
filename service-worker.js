@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Portmonetka/precache-manifest.b3c836cc56864f3101a0df80268d53d8.js"
+  "/Portmonetka/precache-manifest.f914ce47e1050cc2159cf5f114cd0b39.js"
 );
 
 self.addEventListener('message', (event) => {
