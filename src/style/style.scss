@@ -47,7 +47,7 @@ body {
 .container {
   margin-top: 50px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   @media (max-width: 900px) {
     flex-wrap: wrap;
   }
