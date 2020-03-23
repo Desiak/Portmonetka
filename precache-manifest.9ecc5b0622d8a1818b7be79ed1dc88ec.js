@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5387ae64b1db236e8eb45eb25d6d0132",
+    "revision": "b1cac33d5315092ec37bf48892bd9272",
     "url": "/Portmonetka/index.html"
   },
   {
-    "revision": "429baa97677ace4f9cb4",
-    "url": "/Portmonetka/static/css/main.b6d5d62a.chunk.css"
+    "revision": "feffa27658776be1896c",
+    "url": "/Portmonetka/static/css/main.df23d3c2.chunk.css"
   },
   {
     "revision": "176fe4d2d1a118b77a6a",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portmonetka/static/js/2.18072f43.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "429baa97677ace4f9cb4",
+    "revision": "feffa27658776be1896c",
     "url": "/Portmonetka/static/js/main.bb334473.chunk.js"
   },
   {
