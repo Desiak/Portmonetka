@@ -7,7 +7,7 @@ import Balance from "./components/Balance";
 class App extends React.Component {
   date = new Date().toLocaleDateString();
   state = {
-    langPL: false,
+    langPL: true,
     lang: {
       header: "Stan konta: ",
       income: "Przychód",
@@ -18,7 +18,7 @@ class App extends React.Component {
       numberInput: "Podaj kwotę",
       buttonTxt: "Dodaj",
       helperTxt: "Od 3 do 20 znaków",
-      helperNum: "Wartość minimalna to 1zł"
+      helperNum: "Wartość minimalna to 1zł",
     },
 
     income: [],
@@ -34,38 +34,47 @@ class App extends React.Component {
     errorET: false,
     errorEV: false,
     errorIT: false,
-    errorIV: false
+    errorIV: false,
   };
-
-  handleTitleChange = e => {
+  //handle input name change
+  handleTitleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  handleValueChange = e => {
+  //handle input number change
+  handleValueChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.valueAsNumber || e.target.value //   The || e.target.value is a fallback in case the valueAsNumber is NaN.
+      [e.target.name]: e.target.valueAsNumber || e.target.value, //   The || e.target.value is a fallback in case the valueAsNumber is NaN.
     });
   };
 
-  handleIncomeButtonClick = e => {
+  //handle click event of input button
+  handleIncomeButtonClick = (e) => {
+    //check if input names length is between 3-20
     if (this.state.incomeName.length < 3 || this.state.incomeName.length > 21) {
       this.setState({
-        errorIT: true
+        errorIT: true,
       });
       this.resetErrors();
-    } else if (this.state.valueInc <= 1) {
+    }
+
+    //check if number input is at least 1(zł)
+    else if (this.state.valueInc < 1) {
       this.setState({
-        errorIV: true
+        errorIV: true,
       });
       this.resetErrors();
-    } else {
+    }
+
+    //if above requirements are passed:
+    else {
       const item = {
         title: this.state.incomeName,
         value: Math.round(this.state.valueInc * 100) / 100,
         date: this.state.date,
-        key: this.state.key
+        key: this.state.key,
       };
 
       this.setState({
@@ -74,7 +83,7 @@ class App extends React.Component {
         valueInc: "",
         key: this.state.key + 1,
         errorIT: false,
-        errorIV: false
+        errorIV: false,
       });
     }
   };
@@ -84,22 +93,25 @@ class App extends React.Component {
         errorET: false,
         errorEV: false,
         errorIT: false,
-        errorIV: false
+        errorIV: false,
       });
     }, 2000);
   };
+
+  //handle click event of expenses button
+
   handleExpensesButtonClick = () => {
     if (
       this.state.expenseName.length < 3 ||
       this.state.expenseName.length > 21
     ) {
       this.setState({
-        errorET: true
+        errorET: true,
       });
       this.resetErrors();
     } else if (this.state.valueExp < 1) {
       this.setState({
-        errorEV: true
+        errorEV: true,
       });
       this.resetErrors();
     } else {
@@ -107,7 +119,7 @@ class App extends React.Component {
         title: this.state.expenseName,
         value: Math.round(this.state.valueExp * 100) / 100,
         date: this.state.date,
-        key: this.state.key
+        key: this.state.key,
       };
 
       this.setState({
@@ -116,61 +128,83 @@ class App extends React.Component {
         valueExp: "",
         key: this.state.key + 1,
         errorET: false,
-        errorEV: false
+        errorEV: false,
       });
     }
-  };
-  removeElement = (e, key) => {
-    let items = this.state[e].filter(item => item.key !== key);
-    this.setState({
-      [e]: items
-    });
   };
 
-  onSwitchLanguage = () => {
+  // remove item from the list
+  removeElement = (selector, key) => {
+    let items = this.state[selector].filter((item) => item.key !== key);
     this.setState({
-      langPL: !this.state.langPL
+      [selector]: items,
     });
-    if (this.state.langPL) {
+  };
+  // switch language Eng/PL
+  onSwitchLanguage = () => {
+    //selectors
+    const balance = document.querySelector(".infoArea__balance");
+    const expenses = document.querySelector(".expenses__wrapper");
+    const income = document.querySelector(".income__wrapper");
+
+    //transition
+    balance.classList.add("transition");
+    expenses.classList.add("transition");
+    income.classList.add("transition");
+
+    setTimeout(() => {
       this.setState({
-        lang: {
-          header: "Stan konta: ",
-          income: "Przychód",
-          expenses: "Wydatki",
-          totalIncome: "Suma przychodu: ",
-          totalExpenses: "Suma wydatków: ",
-          textInput: "Wpisz tytuł",
-          numberInput: "Podaj kwotę",
-          buttonTxt: "Dodaj",
-          helperTxt: "Od 3 do 20 znaków",
-          helperNum: "Wartość minimalna to 1zł"
-        }
+        langPL: !this.state.langPL,
       });
-    } else {
-      this.setState({
-        lang: {
-          header: "Balance: ",
-          income: "Income",
-          expenses: "Expenses",
-          totalIncome: "Total income: ",
-          totalExpenses: "Total expenses: ",
-          textInput: "Enter title",
-          numberInput: "Enter value",
-          buttonTxt: "Add",
-          helperTxt: "Between 3 to 20 characters",
-          helperNum: "At least 1zł"
-        }
-      });
-    }
+
+      if (this.state.langPL) {
+        this.setState({
+          lang: {
+            header: "Stan konta: ",
+            income: "Przychód",
+            expenses: "Wydatki",
+            totalIncome: "Suma przychodu: ",
+            totalExpenses: "Suma wydatków: ",
+            textInput: "Wpisz tytuł",
+            numberInput: "Podaj kwotę",
+            buttonTxt: "Dodaj",
+            helperTxt: "Od 3 do 20 znaków",
+            helperNum: "Wartość minimalna to 1zł",
+          },
+        });
+      } else {
+        this.setState({
+          lang: {
+            header: "Balance: ",
+            income: "Income",
+            expenses: "Expenses",
+            totalIncome: "Total income: ",
+            totalExpenses: "Total expenses: ",
+            textInput: "Enter title",
+            numberInput: "Enter value",
+            buttonTxt: "Add",
+            helperTxt: "Between 3 to 20 characters",
+            helperNum: "At least 1zł",
+          },
+        });
+      }
+    }, 500);
+
+    //removing transition class so it can be added back on next click
+    setTimeout(() => {
+      balance.classList.remove("transition");
+      expenses.classList.remove("transition");
+      income.classList.remove("transition");
+    }, 1000);
   };
 
   render() {
     let income = 0;
     let expenses = 0;
-    this.state.income.forEach(element => {
+    this.state.income.forEach((element) => {
       income = income + element.value;
     });
-    this.state.expenses.forEach(element => {
+    this.state.expenses.forEach((element) => {
       expenses = expenses + element.value;
     });
     return (
@@ -180,6 +214,7 @@ class App extends React.Component {
           expenses={expenses}
           header={this.state.lang.header}
           switchLang={this.onSwitchLanguage}
+          lang={this.state.langPL}
         ></Balance>
         <div className="container">
           <Income

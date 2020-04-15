@@ -72,52 +72,56 @@ body {
       width: 12px;
       opacity: 0.5;
     }
+  }
+  .list-element {
+    padding: 5px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 80px;
+    text-transform: capitalize;
+    transition: all 1s ease;
 
-    .list-element {
-      padding: 5px;
-      list-style: none;
+    &__date {
+      flex-basis: 60%;
       display: flex;
-      flex-wrap: wrap;
-      min-height: 80px;
-      text-transform: capitalize;
-      &__date {
-        flex-basis: 60%;
-        display: flex;
-        font-size: 0.9em;
-        flex-grow: 1;
-        opacity: 0.7;
+      font-size: 0.9em;
+      flex-grow: 1;
+      opacity: 0.7;
+    }
+    &__bin {
+      color: rgb(92, 85, 92);
+      margin: 0 5px;
+      font-size: 1.6em;
+      transition: 0.2s;
+
+      &:hover {
+        font-size: 1.8em;
+        color: black;
+        cursor: pointer;
       }
-      &__bin {
-        color: rgb(92, 85, 92);
-        margin: 0 5px;
-        font-size: 1.4em;
-        &:hover {
-          transition: 0.3s;
-          color: rgb(0, 0, 0);
-          cursor: pointer;
-        }
-      }
-      &__title {
-        display: flex;
-        margin: 0 10px;
-        flex-basis: 60%;
-        font-size: 1.6em;
-        font-weight: bold;
-        opacity: 0.8;
-        align-items: flex-end;
-      }
-      &__value {
-        display: flex;
-        justify-content: flex-end;
-        margin: 0 10px;
-        flex-grow: 1;
-        font-size: 1.2em;
-        opacity: 0.9;
-        align-items: flex-end;
-      }
-      &:nth-child(odd) {
-        background-color: rgba(65, 4, 80, 0.123);
-      }
+    }
+    &__title {
+      display: flex;
+      margin: 0 10px;
+      flex-basis: 60%;
+      font-size: 1.6em;
+      font-weight: bold;
+      opacity: 0.8;
+      align-items: flex-end;
+    }
+    &__value {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0 10px;
+      flex-grow: 1;
+      font-size: 1.2em;
+      opacity: 0.9;
+      align-items: flex-end;
+    }
+
+    &:nth-child(odd) {
+      background-color: rgba(65, 4, 80, 0.123);
     }
   }
 
@@ -167,20 +171,20 @@ body {
   );
 }
 
-.c {
+.switch {
   position: absolute;
   max-width: 25px;
   max-height: 25px;
   width: 20px;
   height: 20px;
+  opacity: 0.5;
+  transition: 0.2s;
   cursor: pointer;
-  // will-change: transform, opacity;
+
   color: white;
   font-size: 1.2em;
   &:hover {
-    color: rgb(255, 255, 163);
     font-size: 1.4em;
-    transition: 0.2s;
   }
   @media (max-width: 900px) {
     right: 80px;
@@ -189,7 +193,28 @@ body {
     &:hover {
       color: rgb(255, 255, 163);
       font-size: 2.6em;
-      transition: 0.2s;
     }
+  }
+}
+
+//transition of language switch
+.transition {
+  animation: trans 1s;
+}
+@keyframes trans {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+    transform: scale(0.95);
+    box-shadow: none;
+  }
+  60% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
   }
 }
