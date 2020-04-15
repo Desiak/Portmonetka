@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/Portmonetka/static/css/main.df23d3c2.chunk.css",
-    "main.js": "/Portmonetka/static/js/main.bb334473.chunk.js",
-    "main.js.map": "/Portmonetka/static/js/main.bb334473.chunk.js.map",
+    "main.css": "/Portmonetka/static/css/main.bad9c5a0.chunk.css",
+    "main.js": "/Portmonetka/static/js/main.a08cea22.chunk.js",
+    "main.js.map": "/Portmonetka/static/js/main.a08cea22.chunk.js.map",
     "runtime-main.js": "/Portmonetka/static/js/runtime-main.774edea4.js",
     "runtime-main.js.map": "/Portmonetka/static/js/runtime-main.774edea4.js.map",
     "static/js/2.18072f43.chunk.js": "/Portmonetka/static/js/2.18072f43.chunk.js",
     "static/js/2.18072f43.chunk.js.map": "/Portmonetka/static/js/2.18072f43.chunk.js.map",
     "index.html": "/Portmonetka/index.html",
-    "precache-manifest.9ecc5b0622d8a1818b7be79ed1dc88ec.js": "/Portmonetka/precache-manifest.9ecc5b0622d8a1818b7be79ed1dc88ec.js",
+    "precache-manifest.83b9e163b50678041229f7d1148fa4a7.js": "/Portmonetka/precache-manifest.83b9e163b50678041229f7d1148fa4a7.js",
     "service-worker.js": "/Portmonetka/service-worker.js",
-    "static/css/main.df23d3c2.chunk.css.map": "/Portmonetka/static/css/main.df23d3c2.chunk.css.map",
+    "static/css/main.bad9c5a0.chunk.css.map": "/Portmonetka/static/css/main.bad9c5a0.chunk.css.map",
     "static/js/2.18072f43.chunk.js.LICENSE.txt": "/Portmonetka/static/js/2.18072f43.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.774edea4.js",
     "static/js/2.18072f43.chunk.js",
-    "static/css/main.df23d3c2.chunk.css",
-    "static/js/main.bb334473.chunk.js"
+    "static/css/main.bad9c5a0.chunk.css",
+    "static/js/main.a08cea22.chunk.js"
   ]
 }
